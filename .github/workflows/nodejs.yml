@@ -13,4 +13,10 @@ jobs:
       with:
         who-to-greet: huaihu
     - name: Get the output time
-      run: echo hello
+      run: echo "time is ${{steps.hello.outputs.time}}"
+  job2:
+   runs-on: ubuntu-latest
+   steps:
+     - name: echo
+       run: echo "time is ${{jobs.helle_world_job.steps.hello.outputs.time}}"
+   
