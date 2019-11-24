@@ -17,6 +17,6 @@ jobs:
   job2:
    runs-on: ubuntu-latest
    steps:
-     - name: echo
-       run: echo "time is ${{jobs.helle_world_job.steps.hello.outputs.time}}"
+   - name: echo
+     run: echo "time is ${{jobs.helle_world_job.steps.hello.outputs.time}}"
    
