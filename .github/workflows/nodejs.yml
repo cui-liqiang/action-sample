@@ -7,5 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+    - name: hello action
+      id: hello
+      uses: actions/hello-world-javascript-action@v1
+      with:
+        who-to-greet: huaihu
     - name: Get the output time
       run: echo hello
