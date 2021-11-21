@@ -14,6 +14,9 @@ jobs:
         who-to-greet: huaihu
     - name: Get the output time
       run: echo "time is ${{steps.hello.outputs.time}}"
+    - name: Set selected color
+      run: echo '::set-output name=SELECTED_COLOR::green' && echo 'normal output'
+      id: random-color-generator
   job2:
    runs-on: ubuntu-latest
    steps:
