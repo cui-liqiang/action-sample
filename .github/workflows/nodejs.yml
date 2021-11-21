@@ -17,9 +17,4 @@ jobs:
     - name: Set selected color
       run: echo '::set-output name=SELECTED_COLOR::green' && echo 'normal output'
       id: random-color-generator
-  job2:
-   runs-on: ubuntu-latest
-   steps:
-   - name: echo
-     run: echo "time is ${{jobs.helle_world_job.steps.hello.outputs.time}}"
    
