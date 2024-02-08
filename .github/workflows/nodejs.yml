@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+    - name: command-action
+      uses: github/command@v1.1.0
+      with:
+        command: eccc
     - name: hello action
       id: hello
       uses: actions/hello-world-javascript-action@v1
