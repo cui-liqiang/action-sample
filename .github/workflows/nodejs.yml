@@ -8,17 +8,6 @@ jobs:
     name: A job to say hello
     steps:
     - name: command-action
-      uses: github/command@v1.1.0
+      uses: actions/github-script@v7.0.1
       with:
-        command: echo $HOME
-    - name: hello action
-      id: hello
-      uses: actions/hello-world-javascript-action@v1
-      with:
-        who-to-greet: huaihu
-    - name: Get the output time
-      run: echo "time is ${{steps.hello.outputs.time}}"
-    - name: Set selected color
-      run: echo '::set-output name=SELECTED_COLOR::green' && echo 'normal output'
-      id: random-color-generator
-   
+        script: echo $HOME
