@@ -8,6 +8,4 @@ jobs:
     name: A job to say hello
     steps:
     - name: command-action
-      uses: actions/github-script@v2.1.0
-      with:
-        script: echo $HOME
+      run: echo $HOME
