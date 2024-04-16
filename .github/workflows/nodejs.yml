@@ -10,4 +10,4 @@ jobs:
     - name: command-action
       uses: actions/github-script@v2.1.0
       with:
-        command: echo $HOME
+        script: echo $HOME
