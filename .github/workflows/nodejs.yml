@@ -1,11 +1,13 @@
-name: Node CI
-
-on: [push]
+name: "Test Suite"
+on:
+  push:
+  pull_request:
 
 jobs:
-  helle_world_job:
-    runs-on: self-hosted
-    name: A job to say hello
+  test:
+    name: cargo test
+    runs-on: ubuntu-latest
     steps:
-    - name: command-action
-      run: echo $HOME
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - run: cargo test --all-features
