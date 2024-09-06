@@ -8,6 +8,12 @@ jobs:
     name: cargo test
     runs-on: ubuntu-latest
     steps:
-      - run: pwd && sleep 100
+      - run: pwd && touch file1
+      - uses: actions/cache/save@v4
+        id: cache
+        with:
+          path: file1
+          key: myfile1cachekey
+    
 
-
+    
