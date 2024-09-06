@@ -6,6 +6,6 @@ on:
 jobs:
   test:
     name: cargo test
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - run: pwd && sleep 100
