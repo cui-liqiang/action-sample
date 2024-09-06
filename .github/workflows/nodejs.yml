@@ -6,6 +6,6 @@ on:
 jobs:
   test:
     name: cargo test
-    runs-on: self-hosted
+    runs-on: ubuntu
     steps:
       - run: pwd && sleep 100
