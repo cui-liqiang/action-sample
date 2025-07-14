@@ -20,5 +20,4 @@ jobs:
           oidc-provider-arn: 'acs:ram::1005298046719350:oidc-provider/github-action'
           role-session-name: 'github-action-session'
           role-session-expiration: 1800
-          audience: 'https://github.com/cui-liqiang11'
       - run: echo ${ALIBABA_CLOUD_SECURITY_TOKEN}123
