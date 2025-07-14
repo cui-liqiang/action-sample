@@ -6,6 +6,7 @@ on:
 permissions:
   id-token: write
   contents: read
+
       
 jobs:
   test:
@@ -13,5 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL} && echo ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
-
-    
+      - uses: aliyun/configure-aliyun-credentials-action@v1
+        with:
+          role-to-assume: 'acs:ram::1005298046719350:role/github-action-role'
+          oidc-provider-arn: 'acs:ram::1005298046719350:oidc-provider/github-action'
+          role-session-name: 'github-action-session'
+          role-session-expiration: 1800
+          audience: 'github-actions'
+      - run: echo ${ALIBABA_CLOUD_SECURITY_TOKEN}
