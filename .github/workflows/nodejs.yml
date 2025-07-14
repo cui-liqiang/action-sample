@@ -14,7 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: FOO=$ACTIONS_ID_TOKEN_REQUEST_TOKEN && echo $FOO &&  echo "$ACTIONS_ID_TOKEN_REQUEST_URL"
-      - run: 'curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.aliyuncs.com"'
+      - run: 'curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.aliyuncs.com" > /tmp/file'
+      - run: cat /tmp/file
       - uses: aliyun/configure-aliyun-credentials-action@v1
         with:
           role-to-assume: 'acs:ram::1005298046719350:role/github-action-role'
