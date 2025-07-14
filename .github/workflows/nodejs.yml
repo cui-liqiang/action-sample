@@ -13,6 +13,7 @@ jobs:
     name: cargo test
     runs-on: ubuntu-latest
     steps:
+      - run: echo $ACTIONS_ID_TOKEN_REQUEST_TOKEN &&  echo "$ACTIONS_ID_TOKEN_REQUEST_URL"
       - run: 'curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.aliyuncs.com"'
       - uses: aliyun/configure-aliyun-credentials-action@v1
         with:
