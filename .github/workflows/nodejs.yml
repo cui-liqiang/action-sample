@@ -3,11 +3,15 @@ on:
   push:
   pull_request:
 
+permissions:
+  id-token: write
+  contents: read
+      
 jobs:
   test:
     name: cargo test
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL}
+      - run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL} && echo ${ACTIONS_ID_TOKEN_REQUEST_URL} > /tmp/tokenurl
 
     
