@@ -8,12 +8,6 @@ jobs:
     name: cargo test
     runs-on: ubuntu-latest
     steps:
-      - run: pwd && touch file1
-      - uses: actions/cache/save@v4
-        id: cache
-        with:
-          path: file1
-          key: myfile1cachekey
-    
+      - run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL}
 
     
