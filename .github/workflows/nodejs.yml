@@ -12,6 +12,6 @@ jobs:
     name: cargo test
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL} && echo ${ACTIONS_ID_TOKEN_REQUEST_URL} > /tmp/tokenurl
+      - run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL} && echo ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
 
     
