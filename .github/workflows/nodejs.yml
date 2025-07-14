@@ -21,4 +21,4 @@ jobs:
           role-session-name: 'github-action-session'
           role-session-expiration: 1800
           audience: 'github-actions'
-      - run: echo ${ALIBABA_CLOUD_SECURITY_TOKEN}
+      - run: echo ${ALIBABA_CLOUD_SECURITY_TOKEN}123
