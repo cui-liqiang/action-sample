@@ -4,7 +4,7 @@ const app = express();
 // HTML escape function to prevent XSS attacks
 function escapeHtml(unsafe) {
   if (!unsafe) return '';
-  return unsafe
+  return String(unsafe)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
