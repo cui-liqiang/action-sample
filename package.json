@@ -19,6 +19,7 @@
   "homepage": "https://github.com/cui-liqiang/action-sample#readme",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "@actions/github": "^1.1.0"
+    "@actions/github": "^1.1.0",
+    "escape-html": "^1.0.3"
   }
 }
